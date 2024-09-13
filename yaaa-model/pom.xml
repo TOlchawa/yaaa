@@ -11,6 +11,7 @@
     </parent>
 
     <artifactId>yaaa-model</artifactId>
+    <name>YAAA Model</name>
 
     <properties>
         <maven.compiler.source>21</maven.compiler.source>

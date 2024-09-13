@@ -10,8 +10,8 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <groupId>com.memoritta.yaaa</groupId>
     <artifactId>yaaa-simple</artifactId>
+    <name>YAAA Simple Implementation</name>
 
     <properties>
         <maven.compiler.source>21</maven.compiler.source>

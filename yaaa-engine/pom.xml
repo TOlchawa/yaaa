@@ -11,6 +11,7 @@
     </parent>
 
     <artifactId>yaaa-engine</artifactId>
+    <name>YAAA Engine</name>
 
     <properties>
         <maven.compiler.source>21</maven.compiler.source>
