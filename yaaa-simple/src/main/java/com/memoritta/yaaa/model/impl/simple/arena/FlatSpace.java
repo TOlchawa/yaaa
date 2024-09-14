@@ -1,10 +1,8 @@
 package com.memoritta.yaaa.model.impl.simple.arena;
 
-import com.memoritta.yaaa.model.arena.AaMap;
+import com.memoritta.yaaa.model.arena.AaSpace;
 import com.memoritta.yaaa.model.arena.AaField;
-import lombok.Builder;
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
 import java.util.Arrays;
@@ -13,7 +11,7 @@ import java.util.stream.Collectors;
 
 @Getter
 @Setter
-public class FlatMap implements AaMap {
+public class FlatSpace implements AaSpace {
 
     private BasicField[][] arrayMap;
 

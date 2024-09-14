@@ -1,8 +1,7 @@
-package com.memoritta.yaaa.engine.impl.simple;
+package com.memoritta.yaaa.model.impl.simple.engine;
 
 import com.memoritta.yaaa.engine.ExecutionResult;
-import com.memoritta.yaaa.model.arena.AaMap;
-import com.memoritta.yaaa.model.impl.simple.arena.FlatMap;
+import com.memoritta.yaaa.model.arena.AaSpace;
 import com.memoritta.yaaa.model.impl.simple.utils.FlatMapUtils;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +27,7 @@ class SimpleEngineTest {
     public static class Config {
 
         @Bean
-        public AaMap getFlatMap() {
+        public AaSpace getFlatMap() {
             return FlatMapUtils.createFlatMap(2, 2 );
         }
     }

@@ -17,7 +17,7 @@ public class BasicField implements AaField {
 
     private final int x;
     private final int y;
-    private final FlatMap parentMap;
+    private final FlatSpace parentMap;
     private final Set<AaResource> resources = new HashSet<>();
     private final Set<Bot> bots = new HashSet<>();
 
