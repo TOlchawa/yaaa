@@ -3,6 +3,7 @@ package com.memoritta.yaaa.model.impl.simple.engine;
 import com.memoritta.yaaa.engine.AaEngine;
 import com.memoritta.yaaa.engine.ActionResult;
 import com.memoritta.yaaa.engine.ExecutionResult;
+import com.memoritta.yaaa.model.ai.Ai;
 import com.memoritta.yaaa.model.arena.AaField;
 import com.memoritta.yaaa.model.arena.AaSpace;
 import com.memoritta.yaaa.model.behavior.AaAction;
@@ -18,6 +19,8 @@ import java.util.List;
 import java.util.Random;
 import java.util.Set;
 import java.util.stream.Collectors;
+
+import static java.util.Optional.ofNullable;
 
 @Service
 @RequiredArgsConstructor
@@ -40,10 +43,14 @@ public class SimpleEngine implements AaEngine {
                 .collect(Collectors.toList());
 
         Bot bot = chooseRandomBot(allBots);
-        AaAction action = bot.ai().think();
-        applyAction(action, bot, aaSpace);
+        ExecutionResult result = ofNullable(bot)
+                .map(Bot::ai)
+                .map(Ai::think)
+                .map(action -> applyAction(action, bot, aaSpace))
+                .map(actionManager::convert)
+                .orElseGet(() -> new ExecutionResult("ACTION_SKIPPED", "Skip action for bot: " + bot));
 
-        return new ExecutionResult("foo " + bot.hashCode(), "bar " + bot.hashCode() + " " + bot.ai().hashCode());
+        return result;
     }
 
     @Override
